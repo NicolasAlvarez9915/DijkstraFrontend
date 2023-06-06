@@ -1,0 +1,57 @@
+
+<h2 mat-dialog-title>{{titulo}}</h2>
+
+<mat-dialog-content class="mat-typography" style="width: 100%;">
+    <div *ngIf="!nodoCreado">
+        <form [formGroup]="formularioCrearNodo">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Nombre</span>
+                </div>
+                <input type="text" id="inputNombre" name="nombre"  class="form-control" placeholder="Nombre" formControlName="nombre" />
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
+                </div>
+                <select class="form-control" id="inputGroupSelect01" formControlName="tipo">
+                    <option selected value="Terrestre">Terrestre</option>
+                    <option value="Aereo">Aereo</option>
+                    <option value="Maritimo">Maritimo</option>
+                </select>
+            </div>
+        </form>
+    </div>
+    <div *ngIf="nodoCreado">
+        <form [formGroup]="formularioCrearConexion">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                <span class="input-group-text">Valor</span>
+                </div>
+                <input type="number" name="valor"  class="form-control" placeholder="0" formControlName="valor" />
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                <span class="input-group-text">Peso</span>
+                </div>
+                <input type="number" name="peso"  class="form-control" placeholder="0" formControlName="peso" />
+            </div>
+        </form>
+        
+    </div>
+    <div *ngIf="nodoCreado">
+        <p>
+            {{cargandoNodos}}
+        </p>
+        <div class="row">
+            <button mat-flat-button *ngFor="let circle of nodos" class="col" (click)="enlazarNodos(circle.id)">
+                {{circle.nombre}}
+            </button>
+        </div>
+    </div>
+    
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="crearNodo()" cdkFocusInitial>{{textoBtn}}</button>
+</mat-dialog-actions>

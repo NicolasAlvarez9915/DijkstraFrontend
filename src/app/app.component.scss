@@ -1,0 +1,41 @@
+.lines {
+  width: 100%;
+  height: 100%;
+}
+.lines line {
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2px;
+}
+.line-text {
+  transform-origin: center center;
+}
+.contenedor {
+  background-color: rgb(193, 191, 188);
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border: solid 8px rgb(255, 255, 255);
+}
+
+.circle {
+  display: grid;
+  border: solid 2px rgb(255, 255, 255);
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  align-items: center;
+}
+
+.visible{
+  visibility: hidden !important;
+}
+
+
+.cPrincipal{
+  background-color: rgb(5, 59, 98);
+  width: 100%;
+  height: 100%;
+}
